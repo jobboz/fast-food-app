@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/plain.css" />
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <h3 class="site-name"><a href="#">Fast food app</a></h3>
+        <ul>
+            <li>
+                <a class="home" href="#">home</a>
+            </li>
+            <li>
+                <a href="#">logout</a>
+            </li>
+            <li>
+                <a href="#">about</a>
+            </li>
+            <li>
+                <a href="#">view orders</a>
+            </li>
+            <li>
+                <a href="#">edit orders</a>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <header>
+            <h1>Add Food item</h1>
+        </header>
+        <form class="user-form">
+            <div class="user-detail-div">
+                <label for="item name">item-name</label>
+                <input type="text" id="item-name" placeholder="item-name">
+            </div>
+            <div>
+                <label for="price">price</label>
+                <input type="text" id="price" placeholder="price">
+            </div>
+            <div>
+                <label for="quantity">quantity</label>
+                <input type="number" id="quantity" placeholder="quantity">
+            </div>
+            <div>
+                <label for="number">description</label>
+                <textarea name="description" id="description"></textarea>
+            </div>
+            <div>
+                <label for="image">image</label>
+                <input type="file" id="image" placeholder="quantity">
+            </div>
+            <button id="submit-btn" type="submit">Add</button>
+        </form>
+    </section>
+</body>
+
+</html>
