@@ -24,7 +24,7 @@ section{
     
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"], input[type="password"],input[type="email"]{
 margin-top:10px;
 line-height:35px;
 width: 100%;
@@ -51,7 +51,12 @@ h2{
     font-size: 20px;
     color: #cccccc
 }
+#submit-btn:hover{
+    background-color: #8a1a48;
+border-radius: 5px
+}
+
 form{
     width: 50%;
-    background?-color: blue;
+    
 }
