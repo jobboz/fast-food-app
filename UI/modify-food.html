@@ -16,15 +16,15 @@
             <li>
                 <a class="home" href="#">home</a>
             </li>
-           
+            
             <li>
-                <a href="#">about</a>
+                <a href="#">food items</a>
             </li>
             <li>
                 <a href="#">view orders</a>
             </li>
             <li>
-                <a href="modify-food.html">Add food items</a>
+                <a href="add-food.html">Add Food</a>
             </li>
             <li>
                 <a href="#">logout</a>
@@ -33,30 +33,33 @@
     </nav>
     <section>
         <header>
-            <h1>Add Food item</h1>
+            <h1>Modify Food item</h1>
         </header>
         <form class="user-form">
             <div class="user-detail-div">
                 <label for="item name">item name</label>
-                <input type="text" id="item-name" placeholder="item-name">
+                <input type="text" id="item-name" placeholder="item-name"value="justin emefesi">
             </div>
             <div>
                 <label for="price">price</label>
-                <input type="text" id="price" placeholder="price">
+                <input type="text" id="price" placeholder="price" value="7">
             </div>
             <div>
                 <label for="quantity">quantity</label>
-                <input type="number" id="quantity" placeholder="quantity">
+                <input type="number" id="quantity" placeholder="quantity"value="10">
             </div>
             <div>
                 <label for="number">description</label>
-                <textarea name="description" id="description"></textarea>
+                <textarea name="description" id="description"value="my ice creams should be missed with all flavours"></textarea>
             </div>
             <div>
                 <label for="image">image</label>
                 <input type="file" id="image" placeholder="quantity">
             </div>
-            <button id="submit-btn" type="submit">Add</button>
+            <div class="button">
+            <button id="edit-btn" type="edit">save</button>
+            <!-- <button id="delete-btn" type="delete">delete</button> -->
+            </div>
         </form>
     </section>
 </body>
