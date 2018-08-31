@@ -1,0 +1,120 @@
+body{
+    background-color:rgba(34, 2, 4, 0.233);
+}
+
+section h1{
+
+    text-align: center;
+}
+#table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: bold;
+    
+    
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+ 
+
+#pend{
+    color: #cb2d6f;
+}
+
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #834065;
+    color: white;
+}
+
+}
+.tables{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+
+}
+nav{
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding-bottom: 20px;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bolder;
+}
+
+li a{
+margin-right: 10px;
+text-decoration: none;
+font-size: 20px;
+display: block;
+padding: 10px 40px;
+color:  #cb2d6f;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+li a:hover{
+     background-color: #cb2d6f;
+     color:#fff;
+     
+}
+footer{
+    position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+   background-color: #cb2d6f;
+}
+@media screen and (max-width: 800px) {
+    nav,ul{
+        display: flex;
+        height: auto;
+    
+
+    }
+    .tables{
+        width: 100%;
+    
+    }
+    nav{
+        margin: 0 auto;
+        width: 90%;
+    }
+section{
+    width: 95%;
+}
+
+@media screen and (max-width: 550px) {
+    .food-view{
+        width: 95%;
+        flex-direction:column; 
+        display: flex;
+  
+  
+        }
+    .food-view img{
+          width: 90%;
+          margin: 2px;
+      }
+      
+    }
+    
+
+
