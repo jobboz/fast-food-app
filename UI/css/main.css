@@ -1,0 +1,151 @@
+body{
+    margin:0;
+    padding: 0;
+    width: 100%;
+     height:100%;
+     /* background-color: #53424c6e; */
+     background-color: #e9b1d0;
+
+}
+
+nav{
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    padding-bottom: 20px;
+}
+/* h3 {
+    font-style: italic;
+    margin-left: 40px;
+    
+} */
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* font-weight: bolder; */
+        width: 100%;
+}
+
+nav li a{
+margin-right: 10px;
+text-decoration: none;
+font-size: 20px;
+display: block;
+padding: 10px 40px;
+color:  #cb2d6f;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+li a:hover{
+     background-color:  #cb2d6f;
+     color:#fff;
+}
+.list-card{
+    background-color: #cb2d6f;
+}
+.list-card p{
+    margin-top: 0;
+}
+section{
+    margin:50px auto;
+    /* background-color:rgb(216, 209, 209); */
+    width:80%;
+    display: flex;
+    flex-direction: column;
+align-items: center;
+   
+}
+
+.food-lists img{
+    /* width: 199px; */
+    height: 200px;
+    width: 100%;
+
+}
+.food-lists li{
+width: 20%;
+}
+.food-lists input[type="button"] {
+    height: 30px;
+}
+
+.list-btn{
+    display: flex;
+    justify-content:space-between;
+}
+
+.Edit {
+    background-color: rgb(0, 110, 255);
+    
+
+}
+.Edit a{
+text-decoration: none;
+}
+.Delete{
+    background-color: white;
+    color:red;
+}
+.Order a{
+    text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 1100px) {
+  section{
+      width: 90%;
+  }
+}
+@media screen and (max-width: 980px) {
+    section{
+        width: 100%;
+    }
+  }
+
+
+@media screen and (max-width: 800px) {
+    nav,ul{
+        flex-direction: column;
+        height: auto;
+    }
+        .food-lists li{
+            width: 90%;
+
+    }
+
+    .list-btn{
+        display: flex;       
+       justify-content:stretch;
+       
+    }
+  .Order{
+      margin-left:10%
+  }
+    nav{
+        margin: 0 auto;
+        width: 90%;
+    }
+section{
+    width: 95%;
+}
+
+  }
+  @media screen and (max-width: 600px) {
+   body{
+       background-color: black;
+       
+   }
+   .list-btn{
+    display: flex;       
+   justify-content:space-between;
+   
+}
+  }
+
+
+
