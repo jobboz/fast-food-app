@@ -93,6 +93,17 @@ text-decoration: none;
 .Order a{
     text-decoration: none;
 }
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    background-color: #cb2d6f;    
+
+}
 
 
 

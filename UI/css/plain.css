@@ -139,6 +139,17 @@ label{
     text-transform: capitalize;
     font-weight: bolder;
 }
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    background-color: #cb2d6f;    
+
+}
 
 /* medial queries */
 @media screen and (max-width: 800px) {
