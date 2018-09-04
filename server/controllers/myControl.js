@@ -9,7 +9,18 @@ export default class MyController {
             myFoods
         })
     }
-    
+       static getSpecificFoods(req, res) {
+           const food = myFoods.find(foods => foods.foodId === parseInt(req.params.foodID))
+
+           if(!food)
+           res.status(404).send({
+               status:'not found',
+               message:'the food with the given id was not found'
+           })
+           const index = myFoods.indexOf(food)
+             res.send(food);
+
+       }
     }
 
 

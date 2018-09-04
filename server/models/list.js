@@ -1,6 +1,6 @@
 const foods = [
     {
-        foofId: 1,
+        foodId: 1,
         name: 'spicy chicken',
         amount: 5000,
         quantity: 3,
