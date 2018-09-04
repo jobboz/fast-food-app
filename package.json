@@ -1,0 +1,29 @@
+{
+  "name": "fast-food-app",
+  "version": "1.0.0",
+  "description": "Fast-Food-Fast is a food delivery service app for a restaurant.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch server --exec babel-node -- server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jobboz/fast-food-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jobboz/fast-food-app/issues"
+  },
+  "homepage": "https://github.com/jobboz/fast-food-app#readme"
+}
