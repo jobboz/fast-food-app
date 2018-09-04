@@ -2,7 +2,7 @@ import express from 'express';
 import myRoute from './routes/routes';
 const app = express();
 import bodyParser from 'body-Parser';
-const port = process.env.port || 8000;
+const port = process.env.PORT || 5000;
 
 app.get('/',  (req, res) => {
     res.send({
