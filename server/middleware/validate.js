@@ -59,6 +59,7 @@ export default class foodValidate {
     
     next();
   }
+     
 }
 
 

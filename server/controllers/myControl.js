@@ -41,7 +41,7 @@ export default class MyController {
                    const newId = myFoods[myFoods.length - 1].foodId + 1;
                    for(let i =0; i < myFoods.length; i++) {
                        if(myFoods[i].name === req.body.name) {
-                           res.send({
+                          return res.send({
                             message:'there is a school with the name already, name must be unique'
                            })
                        }
