@@ -1,0 +1,88 @@
+body{
+    padding: 0%;
+    margin:0%;
+    background: url("./../images/background.jpg");
+    background-color: blueviolet;
+
+    
+}
+
+h1{
+    text-align: center;
+    font-style: italic;
+    color: white;
+    margin-top: 10%;
+
+}
+button a{
+    text-decoration: none;
+    font-weight: bold;
+}
+.login{
+    width: 10%;
+    margin-top: 10px;
+    margin-left: 5px;
+
+}
+.button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    padding: 14px 28px;
+    background-color:rgba(238, 130, 238, 0.356);
+    width: 60%;
+    margin-left: 18%;
+    
+
+}
+
+button{
+    width: 100%;
+    height: 50px;
+}
+button:hover{
+   background-color:black;
+   color: white;
+   
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    background-color: #cb2d6f;    
+
+}
+@media screen and (max-width: 776px) {
+.login{
+    width: 35%;
+}
+    
+}
+@media screen and (max-width: 523px) {
+    .login button{
+        margin-left: 15%;
+        height: 70px;
+}
+
+.login h2{
+    height: 30px;
+}
+
+}
+@media screen and (max-width: 430px) {
+    body{
+        margin: 10px;
+        text-align: center;
+       margin-right:30%;
+       
+    }
+    h1{
+        margin-right: -50px;
+    }
+    
+}

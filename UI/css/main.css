@@ -15,6 +15,11 @@ nav{
     height: 50px;
     padding-bottom: 20px;
 }
+/* h3 {
+    font-style: italic;
+    margin-left: 40px;
+    
+} */
 
 ul{
     list-style-type: none;
@@ -70,66 +75,88 @@ width: 20%;
 
 .list-btn{
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 
 .Edit {
     background-color: rgb(0, 110, 255);
+    
 
+}
+.Edit a{
+text-decoration: none;
 }
 .Delete{
     background-color: white;
     color:red;
 }
+.Order a{
+    text-decoration: none;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    background-color: #cb2d6f;    
+
+}
 
 
 
-@media screen and (max-width: 1050px) {
-
-    .list-card{
-        background-color: burlywood;
-    }
+@media screen and (max-width: 1100px) {
+  section{
+      width: 90%;
+  }
+}
+@media screen and (max-width: 980px) {
     section{
-        width:90%;
+        width: 100%;
     }
-    .food-lists li{
-        width: 25%;
-        margin-right: 5px;
-        margin-top: 15px;
-        }
-  }
-  @media screen and (max-width: 900px) {
-   section,{
-       width:50%;
-   }
-
-   .food-lists li{
-    width: 50%;
-    }
-
   }
 
 
+@media screen and (max-width: 800px) {
+    nav,ul{
+        flex-direction: column;
+        height: auto;
+    }
+        .food-lists li{
+            width: 90%;
 
+    }
 
+    .list-btn{
+        display: flex;       
+       justify-content:stretch;
+       
+    }
+  .Order{
+      margin-left:10%
+  }
+    nav{
+        margin: 0 auto;
+        width: 90%;
+    }
+section{
+    width: 95%;
+}
+
+  }
   @media screen and (max-width: 600px) {
-    section li{
-        width:95%;
-    }
- 
-    .food-lists li{
-     width: 100%;
-     }
- 
+   body{
+       background-color: black;
+       
    }
-   @media screen and(max-width: 800px){
-    naV{
-        display: fleX;
-        flex-wrap: wrap;
-    
-    }
-    
-    
-    }
+   .list-btn{
+    display: flex;       
+   justify-content:space-between;
+   
+}
+  }
 
-  
+
+
