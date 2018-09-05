@@ -1,7 +1,9 @@
 body{
     padding: 0%;
     margin:0%;
-    background: url("./../images/imgb.jpg");
+    background: url("./../images/imgb.jpg") bottom;
+    height: 100vh;
+    background-size: cover
 }
 
 h1{

@@ -42,7 +42,7 @@ export default class MyController {
                    for(let i =0; i < myFoods.length; i++) {
                        if(myFoods[i].name === req.body.name) {
                           return res.send({
-                            message:'there is a school with the name already, name must be unique'
+                            message:'there is a food with the name already, name must be unique'
                            })
                        }
                    }
@@ -67,7 +67,7 @@ export default class MyController {
                     if(myFoods[i].foodId === parseInt(req.params.foodID)) {
                         myFoods[i].name = name || myFoods[i].name
                         myFoods[i].amount = amount || myFoods[i].amount
-                        myFoods[i].quantity = amount || myFoods[i].quantity
+                        myFoods[i].quantity =quantity || myFoods[i].quantity
                         myFoods[i].deliveryAddress = deliveryAddress || myFoods[i].deliveryAddress
                         res.send(myFoods)
                     }else {
