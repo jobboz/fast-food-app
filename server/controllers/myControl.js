@@ -22,6 +22,21 @@ export default class MyController {
              return res.send(food);
 
        }
+
+
+
+       static deleteSpecificFoods(req,res) {
+        const food = myFoods.find(foods => foods.foodId === parseInt(req.params.foodID))
+        if(!food)
+           return res.status(404).send({
+               status:'not found',
+               message:'the food with the given id was not found'
+           })
+           const index = myFoods.indexOf(food)
+            myFoods.splice(index, 1)
+             return res.send(food);
+
+       }
                static createNewOrder(req,res){
                    const newId = myFoods[myFoods.length - 1].foodId + 1;
                    for(let i =0; i < myFoods.length; i++) {
