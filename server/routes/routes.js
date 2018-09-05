@@ -10,6 +10,7 @@ router.route('/foods')
 router.route('/foods/:foodID')
     .get(MyController.getSpecificFoods)
     .put(MyController.modifyInput)
+    .delete(MyController.deleteSpecificFoods)
 
 
 
