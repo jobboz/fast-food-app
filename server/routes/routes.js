@@ -6,6 +6,7 @@ import foodValidate from './../middleware/validate';
 router.route('/foods')
     .get(MyController.getAllFoods)
     .post(foodValidate.createFoodValidator,MyController.createNewOrder)
+    .put(foodValidate.createPutValidator)
 
 router.route('/foods/:foodID')
     .get(MyController.getSpecificFoods)
