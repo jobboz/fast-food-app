@@ -49,9 +49,9 @@ describe('GET all orders', () => {
       .send({})
       .expect(400)
       .end((err, res) => {
-        expect(res.body).to.be.an('object');
-        // expect('bad request').to.equal(res.body.status);
-        // expect('all or some field are undefined').to.equal(res.body.message);
+         expect(res.body).to.be.an('object');
+        //  expect('bad request').to.equal(res.body.status);
+        //  expect('all or some field are undefined').to.equal(res.body.message);
         done();
       });
   });
@@ -69,7 +69,7 @@ describe('GET all orders', () => {
   });
   it('update specific orders', (done) => {
     request(app)
-      .put('/api/v1/foods/1')  //running only whern id is set to 1
+      .put('/api/v1/foods/1')  //
       .set('Accept', 'application/json')
       .send({
         name: 'jeans',

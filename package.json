@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "nodemon --watch server --exec babel-node -- server/app.js",
-    "test": "mocha  --compilers js:babel-core/register server/test"
+    "test": "mocha  --compilers js:babel-core/register server/test",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
