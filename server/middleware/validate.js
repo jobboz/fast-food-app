@@ -2,7 +2,7 @@ import validator from 'validator';
 
 export default class foodValidate {
 
-  static createFoodValidator(req, res, next) {
+  static createPostValidator(req, res, next) {
     const error = [];
 
     const { name, amount, quantity, deliveryAddress } = req.body;
