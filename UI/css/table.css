@@ -103,27 +103,33 @@ footer{
         .food-lists li{
             width: 90%;
 
+    }     #table{
+        width: 100%;
+        margin-bottom:20%;
+        
     }
 
     nav{
         margin: 0 auto;
         width: 90%;
-    /* }
- section{
-    display: flex;
-    width: 90%;
-    flex-wrap: wrap; 
-
-} */
-
   }
 }
-  @media screen and (max-width: 400px) {
+@media screen and (max-width: 440px) {
+    #table{
+        width: 30%;
+        font-size: 15px;
+        
+   }
+   /* #table td{
+       width: 10%;
+   } */
+ }
+  @media screen and (max-width: 375px) {
    #table{
-       width: 100px;
+       width: 30%;
+       font-size: 8px;
+       
        
   }
-  #table td{
-      width: 10%;
-  }
+  
 }
