@@ -132,7 +132,7 @@ footer{
     nav,ul{
         flex-direction: column;
         height: auto;
-    
+         overflow: hidden;
 
     }
     nav{
@@ -140,7 +140,7 @@ footer{
         width: 90%;
     }
 section{
-    width: 95%;
+    width: 100%;
 }
 
   }

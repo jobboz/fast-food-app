@@ -44,13 +44,6 @@ export default class MyController {
     }
     static createNewOrder(req, res) {
         const newId = myFoods[myFoods.length - 1].foodId + 1;
-        for (let i = 0; i < myFoods.length; i++) {
-            if (myFoods[i].name === req.body.name) {
-                return res.send({
-                    message: 'there is a food with the name already, name must be unique'
-                })
-            }
-        }
         myFoods.push({
             foodId: newId,
             name: req.body.name,
