@@ -32,7 +32,7 @@ export default class MyController {
         if (!food)
             return res.status(404).send({
                 status: 'not found',
-                message: 'the food with the given id was not found'
+                message: `the food with the given id ${parseInt(req.params.foodID)} was not found`
             })
         const index = myFoods.indexOf(food)
         myFoods.splice(index, 1)
