@@ -13,7 +13,7 @@ describe('Test for all routes for fast food app', () => {
       .expect(200)
       .end((err, res) => {
         expect(res.body.status).to.equal('success');
-        expect(res.body.message).to.equal('successfully retrived all school');//.equal.to
+        expect(res.body.message).to.equal('successfully retrived all orders');//.equal.to
         done();
       });
   });
@@ -32,8 +32,7 @@ describe('Test for all routes for fast food app', () => {
   it('should return error message for create orders if no values is inputed', (done) => {
     request(app)
       .post('/api/v1/foods')
-      .set('Accept', 'application/json')
-      .send({})
+      .send({ })
       .expect(400)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
@@ -65,7 +64,6 @@ describe('Test for all routes for fast food app', () => {
   it(' PUT should return error message for create orders if no values is inputed', (done) => {
     request(app)
       .put('/api/v1/foods/2')
-      .set('Accept', 'application/json')
       .send({
         name:'hamg dgdgd',
         amount: 6600,
@@ -84,7 +82,6 @@ describe('Test for all routes for fast food app', () => {
   it('should return status code of 404 when making a put request for an invalid id', (done) => {
     request(app)
       .put('/api/v1/foods/14')  
-      .set('Content-Type', 'application/json')
       .send({
         name: 'jeans',
         amount: 7000,
