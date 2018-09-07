@@ -5,12 +5,11 @@ import foodValidate from './../middleware/validate';
 
 router.route('/foods')
     .get(MyController.getAllFoods)
-    .post(MyController.createNewOrder,foodValidate.createPostValidator)
-    .put(foodValidate.createPutValidator)
+    .post(foodValidate.createOrderValidator,MyController.createNewOrder);
 
 router.route('/foods/:foodID')
     .get(MyController.getSpecificFoods)
-    .put(MyController.modifyInput)
+    .put(foodValidate.modifyOrderValidator, MyController.modifyInput)
     .delete(MyController.deleteSpecificFoods)
 
 
