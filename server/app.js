@@ -14,6 +14,11 @@ app.get('/',  (req, res) => {
         message:"welcome to fast food app"
     }) 
 })
+app.get('*',  (req, res) => {
+    res.status(404).send({
+        message:"bad request"
+    }) 
+})
 
 app.use('/api/v1', myRoute)
 
