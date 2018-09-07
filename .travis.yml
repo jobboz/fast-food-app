@@ -1,3 +1,8 @@
 language: node_js
 node_js:
-  - "iojs"
+#  - "8.11.2" 
+  - "stable"
+  # cache:
+  # directories:
+  #   - "node_modules"
+  #   after_success: coveralls

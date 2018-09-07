@@ -123,6 +123,7 @@ footer{
     nav,ul{
         flex-direction: column;
         height: auto;
+        overflow: hidden;
     }
         .food-lists li{
             width: 90%;
@@ -139,24 +140,23 @@ footer{
   }
     nav{
         margin: 0 auto;
-        width: 90%;
+        width: 95%;
     }
 section{
-    width: 95%;
+    width: 100%;
 }
 
   }
   @media screen and (max-width: 600px) {
-   body{
-       background-color: black;
-       
-   }
+  
    .list-btn{
     display: flex;       
    justify-content:space-between;
    
 }
+ 
   }
+  
 
 
 

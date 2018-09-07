@@ -32,7 +32,7 @@ export default class MyController {
         if (!food)
             return res.status(404).send({
                 status: 'not found',
-                message: 'the food with the given id was not found'
+                message: `the food with the given id ${parseInt(req.params.foodID)} was not found`
             })
         const index = myFoods.indexOf(food)
         myFoods.splice(index, 1)
@@ -44,13 +44,6 @@ export default class MyController {
     }
     static createNewOrder(req, res) {
         const newId = myFoods[myFoods.length - 1].foodId + 1;
-        for (let i = 0; i < myFoods.length; i++) {
-            if (myFoods[i].name === req.body.name) {
-                return res.send({
-                    message: 'there is a food with the name already, name must be unique'
-                })
-            }
-        }
         myFoods.push({
             foodId: newId,
             name: req.body.name,
