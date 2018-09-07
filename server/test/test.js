@@ -32,7 +32,7 @@ describe('GET all orders', () => {
     request(app)
       .post('/api/v1/foods')
       .send({
-        name: 'gdggdgdg',
+        name: 'chicken',
         amount: 2300,
         quantity: 5,
         deliveryAddress: ' nnn shhhs hshs'
@@ -52,7 +52,7 @@ describe('GET all orders', () => {
       .expect(400)
       .end((err, res) => {
          expect(res.body).to.be.an('object');
-        //  expect('bad request').to.equal(res.body.status);
+          // expect('bad request').to.equal(res.body.status);
         //  expect('all or some field are undefined').to.equal(res.body.message);
         done();
       });
@@ -83,7 +83,7 @@ describe('GET all orders', () => {
   });
   it('update specific orders', (done) => {
     request(app)
-      .put('/api/v1/foods/1')  //
+      .put('/api/v1/foods/1')  //3
       .set('Accept', 'application/json')
       .send({
         name: 'jeans',
@@ -100,7 +100,7 @@ describe('GET all orders', () => {
         done();
       });
   });
-  it('should return status code of 404 when making a  put request', (done) => {
+  it('should return status code of 404 when making a put request for an invalid id', (done) => {
     request(app)
       .put('/api/v1/foods/18')
       .set('Content-Type', 'application/json')

@@ -8,8 +8,8 @@ export default class foodValidate {
     const { name, amount, quantity, deliveryAddress } = req.body;
     if (name === undefined || amount === undefined || quantity === undefined || deliveryAddress === undefined) {
       return res.status(400).send({
-        status: 'bad request',
-        message: 'all or some field are undefined'
+        status:'bad request',
+        message:'all or some field are undefined'
       });
 
     } else {
