@@ -45,18 +45,17 @@ describe('Test for all routes for fast food app', () => {
   it('should return error message for create orders if no values is inputed', (done) => {
     request(app)
       .post('/api/v1/foods')
-      .set('Accept', 'application/json')
       .send({
         name:'gsgsggsgsgs',
         amount: 7000,
         quantity: 1,
         deliveryAddress: '60 heavens gate long way road'
       })
-      .expect(400)
+      .expect(201)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect('failed').to.equal(res.body.status);
-         expect('all or some field are undefined').to.equal(res.body.message);
+        expect('created').to.equal(res.body.status);
+         expect('successfully created').to.equal(res.body.message);
         done();
       });
   });
