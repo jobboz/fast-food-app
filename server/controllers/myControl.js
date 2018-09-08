@@ -6,7 +6,7 @@ export default class MyController {
     static getAllFoods(req, res) {
         return res.status(200).send({
             status: 'success',
-            message: 'successfully retrived all school',
+            message: 'successfully retrived all orders',
             myFoods
         })
     }
