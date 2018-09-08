@@ -14,8 +14,8 @@ app.get('/',  (req, res) => {
         message:"welcome to fast food app"
     }) 
 })
-app.get('*',  (req, res) => {
-    res.status(404).send({
+app.use('*',  (req, res) => {
+    res.status(404).send({       //added route to catch all error
         message:"bad request"
     }) 
 })
