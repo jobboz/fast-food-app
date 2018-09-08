@@ -13,15 +13,16 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
     "eslint": "^5.5.0",
     "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
     "supertest": "^3.2.0"
   },
   "scripts": {
     "start": "nodemon --watch server --exec babel-node -- server/app.js",
-    "test": "mocha  --compilers js:babel-core/register server/test",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
-  },
+    "test": "nyc --reporter=html --reporter=text mocha  --compilers js:babel-core/register server/test --timeout=3000 --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jobboz/fast-food-app.git"
