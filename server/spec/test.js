@@ -6,9 +6,9 @@ import { expect } from "chai";
 
 describe('Test for all routes for fast food app', () => {
    
-  it('return all orders', (done) => {
+  it('should return all orders', (done) => {
     request(app)
-      .get('/api/v1/foods')  //inserted post instead of get
+      .get('/api/v1/foods')  
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
@@ -17,7 +17,7 @@ describe('Test for all routes for fast food app', () => {
         done();
       });
   });
-  it('GET specific orders', (done) => {
+  it('should GET specific orders', (done) => {
     request(app)
       .get('/api/v1/foods/1')
       .set('Accept', 'application/json')
@@ -29,24 +29,11 @@ describe('Test for all routes for fast food app', () => {
         done();
       });
   });
-  it('should return error message for create orders if no values is inputed', (done) => {
-    request(app)
-      .post('/api/v1/foods')
-      .send({ })
-      .expect(400)
-      .end((err, res) => {
-        expect(res.body).to.be.an('object');
-        expect('failed').to.equal(res.body.status);
-         expect('all or some field are undefined').to.equal(res.body.message);
-        done();
-      });
-  });
-  
-  it('should return error message for create orders if no values is inputed', (done) => {
+  it('should create new orders', (done) => {
     request(app)
       .post('/api/v1/foods')
       .send({
-        name:'gsgsggsgsgs',
+        name:'chicken fries',
         amount: 7000,
         quantity: 1,
         deliveryAddress: '60 heavens gate long way road'
@@ -59,15 +46,28 @@ describe('Test for all routes for fast food app', () => {
         done();
       });
   });
+  it('should return error message for creating orders if no values is inputed', (done) => {
+    request(app)
+      .post('/api/v1/foods')
+      .send({ })
+      .expect(400)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        expect('failed').to.equal(res.body.status);
+         expect('all or some field are undefined').to.equal(res.body.message);
+        done();
+      });
+  });
+
  
-  it(' PUT should return error message for create orders if no values is inputed', (done) => {
+  it('should update an order', (done) => {
     request(app)
       .put('/api/v1/foods/2')
       .send({
-        name:'hamg dgdgd',
+        name:'fish chips',
         amount: 6600,
         quantity: 3,
-        deliveryAddress: 'bhdhdhh ns gate long way road'
+        deliveryAddress: '44 bandaga gate long way road'
       })
       .expect(200)
       .end((err, res) => {
@@ -78,7 +78,7 @@ describe('Test for all routes for fast food app', () => {
       });
   });
  
-  it('should return status code of 404 when making a put request for an invalid id', (done) => {
+  it('should return status code of 404 when making a request for updating an invalid id', (done) => {
     request(app)
       .put('/api/v1/foods/14')  
       .send({
@@ -108,7 +108,7 @@ describe('Test for all routes for fast food app', () => {
         done();
       });
   });
-  it('should return status code of 400 when food id dose not exist', (done) => {
+  it('should return a status code of 400 when food id dose not exist', (done) => {
     request(app)
       .del('/api/v1/foods/10')
       .set('Content-Type', 'application/json')
