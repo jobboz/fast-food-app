@@ -6,7 +6,7 @@ export default class MyController {
     static getAllFoods(req, res) {
         return res.status(200).send({
             status: 'success',
-            message: 'successfully retrived all school',
+            message: 'successfully retrived all orders',
             myFoods
         })
     }
@@ -52,11 +52,12 @@ export default class MyController {
             deliveryAddress: req.body.deliveryAddress
 
         })
-        return res.status(201).send({
-            status: 'created',
-            message: 'successfully created',
-            myFoods
-        })
+        return res.status(201)
+            .send({
+                status: 'created',
+                message: 'successfully created',
+                myFoods
+            });
     }
 
     static modifyInput(req, res) {
@@ -67,12 +68,14 @@ export default class MyController {
                 myFoods[i].amount = amount || myFoods[i].amount
                 myFoods[i].quantity = quantity || myFoods[i].quantity
                 myFoods[i].deliveryAddress = deliveryAddress || myFoods[i].deliveryAddress
-                res.status(200).send({
+                return res.status(200)
+                .send({
                     status: 'success',
                     message: 'successfully updated an order',
                     myFoods
                 })
             }
+            
         }
         return res.status(404)
             .send({

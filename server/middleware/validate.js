@@ -2,15 +2,16 @@ import validator from 'validator';
 
 export default class foodValidate {
 
-  static createPostValidator(req, res, next) {
+  static createOrderValidator(req, res, next) {
     const error = [];
 
     const { name, amount, quantity, deliveryAddress } = req.body;
     if (name === undefined || amount === undefined || quantity === undefined || deliveryAddress === undefined) {
-      return res.status(400).send({
-        status:'bad request',
-        message:'all or some field are undefined'
-      });
+      return res.status(400)
+        .send({
+          status: 'failed',
+          message: 'all or some field are undefined'
+        });
 
     } else {
 
@@ -54,22 +55,14 @@ export default class foodValidate {
             errorMessage: error
           })
       }
+      next();
+
     }
-    next();
   }
 
-  static createPutValidator(req, res, next) {
+  static modifyOrderValidator(req, res, next) {
     const error = [];
-
     const { name, amount, quantity, deliveryAddress } = req.body;
-    if (name === undefined || amount === undefined || quantity === undefined || deliveryAddress === undefined) {
-      return res.status(400).send({
-        status: 'bad request',
-        message: 'all or some field are undefined'
-      });
-
-    } else {
-
       if (name) {
         if (name.length > 20 || name.length < 3) {
           error.push('name must be between 3 and 20 charecters')
@@ -102,7 +95,7 @@ export default class foodValidate {
             errorMessage: error
           })
       }
-    }
-    next();
+      next();
+
   }
 }
