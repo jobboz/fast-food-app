@@ -4,7 +4,7 @@ import { expect } from "chai";
 
 
 
-describe('Test for all routes for fast food app', () => {
+describe('Test for all routes for fast food apps', () => {
    
   it('return all orders', (done) => {
     request(app)
