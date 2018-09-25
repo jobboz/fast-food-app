@@ -4,11 +4,11 @@ import { expect } from "chai";
 
 
 
-describe('Test for all routes for fast food app', () => {
+describe('Test for all routes for fast food apps', () => {
    
   it('return all orders', (done) => {
     request(app)
-      .get('/api/v1/foods')  //inserted post instead of get
+      .get('/api/v1/foods')  
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
@@ -42,7 +42,7 @@ describe('Test for all routes for fast food app', () => {
       });
   });
   
-  it('should return error message for create orders if no values is inputed', (done) => {
+  it('should successfully create an order', (done) => {
     request(app)
       .post('/api/v1/foods')
       .send({
@@ -60,7 +60,7 @@ describe('Test for all routes for fast food app', () => {
       });
   });
  
-  it(' PUT should return error message for create orders if no values is inputed', (done) => {
+  it('should successfully update an order', (done) => {
     request(app)
       .put('/api/v1/foods/2')
       .send({
@@ -78,7 +78,7 @@ describe('Test for all routes for fast food app', () => {
       });
   });
  
-  it('should return status code of 404 when making a put request for an invalid id', (done) => {
+  it('should return status code of 404 for an invalid data', (done) => {
     request(app)
       .put('/api/v1/foods/14')  
       .send({
@@ -112,11 +112,11 @@ describe('Test for all routes for fast food app', () => {
     request(app)
       .del('/api/v1/foods/10')
       .set('Content-Type', 'application/json')
-      .expect(404)
+      .expect(400)
       .end((err, res) => {
         expect('not found').to.equal(res.body.status);
         expect('the food with the given id 10 was not found').to.equal(res.body.message);
-        expect(res.status).to.equal(404);
+        expect(res.status).to.equal(400);
         done();
       });
   });

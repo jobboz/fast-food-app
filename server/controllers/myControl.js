@@ -30,7 +30,7 @@ export default class MyController {
     static deleteSpecificFoods(req, res) {
         const food = myFoods.find(foods => foods.foodId === parseInt(req.params.foodID))
         if (!food)
-            return res.status(404).send({
+            return res.status(400).send({
                 status: 'not found',
                 message: `the food with the given id ${parseInt(req.params.foodID)} was not found`
             })
