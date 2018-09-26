@@ -1,5 +1,5 @@
 body{
-    background-color:rgba(34, 2, 4, 0.233);
+    background-color: #e9b1d0;
 }
 
 section h1{
@@ -19,6 +19,10 @@ section h1{
 table td, table th {
     border: 1px solid #ddd;
     padding: 8px;
+}
+td a:hover{
+        background-color:  #cb2d6f;
+        color:#fff;
 }
 
  
