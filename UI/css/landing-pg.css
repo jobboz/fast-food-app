@@ -9,7 +9,7 @@ body{
     
 }
 nav{
-    background-color: #fff;
+    background-color:#fff;;
     display: flex;
     justify-content: space-between;
     height: 50px;
@@ -39,13 +39,14 @@ nav li a{
         background-color:  #cb2d6f;
         color:#fff;
     }
-
+    
+    
 h1{
     text-align: center;
     color:white;
     margin-top: 10%;
     line-height: 4rem;
-    font-size: 8vh;
+    font-size: 7vh;
     font-weight: bold;
 
 }
@@ -95,6 +96,7 @@ footer{
     background-color: #cb2d6f;    
 
 }
+
 @media screen and (max-width: 776px) {
 .login{
     width: 35%;
@@ -104,6 +106,19 @@ footer{
         text-decoration: none;
     }
 }
+ /* media 1 ends */
+@media screen and (max-width: 600px) {
+    nav,ul{
+        flex-direction: column;
+        height: auto;
+        overflow: hidden;
+    }
+    nav{
+        margin: 0 auto;
+        width: 107%;
+    }
+}
+/* 2 ends */
 @media screen and (max-width: 523px) {
     .login button{
         margin-left: 15%;
