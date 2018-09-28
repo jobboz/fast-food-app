@@ -1,9 +1,9 @@
 import express from "express";
-import MyController from './../controllers/myControl';
+import deleteController from './../controllers/delController';
 const router = express.Router();
 
 router.route('/foods/:foodID')
-.delete(MyController.deleteSpecificFoods)
+.delete(deleteController.deleteSpecificFoods)
 
 
 
