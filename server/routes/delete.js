@@ -3,7 +3,7 @@ import deleteController from './../controllers/delController';
 const router = express.Router();
 
 router.route('/foods/:foodID')
-.delete(deleteController.deleteSpecificFoods)
+.delete(deleteController.deleteSpecificFoods);
 
 
 

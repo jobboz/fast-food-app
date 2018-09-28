@@ -11,7 +11,7 @@ export default class modifyController {
                 myFoods[i].amount = amount || myFoods[i].amount
                 myFoods[i].quantity = quantity || myFoods[i].quantity
                 myFoods[i].deliveryAddress = deliveryAddress || myFoods[i].deliveryAddress
-                return res.status(200)
+                res.status(200)
                 .send({
                     status: 'success',
                     message: 'successfully updated an order',
@@ -19,7 +19,7 @@ export default class modifyController {
                 })
             }   
         }
-        return res.status(404)
+            res.status(404)
             .send({
                 status: 'bad request',
                 message: `food with id ${parseInt(req.params.foodID)} does not exit`
