@@ -14,7 +14,7 @@ export default class createController {
             deliveryAddress: req.body.deliveryAddress
 
         })
-        return res.status(201)
+         res.status(201)
             .send({
                 status: 'created',
                 message: 'successfully created',
