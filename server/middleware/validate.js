@@ -1,4 +1,3 @@
-import validator from 'validator';
 
 export default class foodValidate {
 
@@ -7,7 +6,8 @@ export default class foodValidate {
 
     const { name, amount, quantity, deliveryAddress } = req.body;
     if (name === undefined || amount === undefined || quantity === undefined || deliveryAddress === undefined) {
-      return res.status(400)
+      // return res.status(400)
+      res.status(400)
         .send({
           status: 'failed',
           message: 'all or some field are undefined'
@@ -50,12 +50,13 @@ export default class foodValidate {
       }
 
       if (error.length !== 0) {
-        return res.status(400)
+        res.status(400)
           .send({
             errorMessage: error
           })
+      } else {
+        next();
       }
-      next();
 
     }
   }

@@ -1,10 +1,11 @@
 import express from "express";
-import MyController from './../controllers/myControl';
+import createController from './../controllers/createControl'
+import foodValidate from './../middleware/validate';
 const router = express.Router();
 
 
 router.route('/foods')
-.post(MyController.createNewOrder);
+.post(foodValidate.createOrderValidator, createController.createNewOrder)
 
 
 
