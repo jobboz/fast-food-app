@@ -64,6 +64,7 @@ align-items: center;
     /* width: 199px; */
     height: 200px;
     width: 100%;
+    
 
 }
 .food-lists li{
@@ -78,17 +79,21 @@ width: 20%;
     justify-content:space-between;
 }
 
-.Edit {
-    background-color: rgb(0, 110, 255);
-    
-
+.Edit a:hover {
+    /* background-color: rgb(0, 110, 255); */
+    background-color:  #cb2d6f;
+    color:#fff;  
 }
+
 .Edit a{
 text-decoration: none;
 }
-.Delete{
-    background-color: white;
-    color:red;
+.Delete a:hover{
+    background-color:  #cb2d6f;
+    color:#fff;
+}
+.Delete a{
+    text-decoration: none;
 }
 .Order a{
     text-decoration: none;
