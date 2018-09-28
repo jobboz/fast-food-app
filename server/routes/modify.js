@@ -1,10 +1,13 @@
 import express from "express";
-import MyController from './../controllers/myControl';
+import modifyController from './../controllers/modifyController'
+import foodValidate from './../middleware/validate';
 const router = express.Router();
 
 
 router.route('/foods/:foodID')
-.put(MyController.modifyInput)
+.put(foodValidate.modifyOrderValidator, modifyController.modifyInput)
+
+
 
 
 
