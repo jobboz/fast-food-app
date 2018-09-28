@@ -8,13 +8,13 @@ export default class deleteController {
     static deleteSpecificFoods(req, res) {
         const food = myFoods.find(foods => foods.foodId === parseInt(req.params.foodID))
         if (!food)
-            return res.status(400).send({
+               res.status(400).send({
                 status: 'not found',
                 message: `the food with the given id ${parseInt(req.params.foodID)} was not found`
             })
         const index = myFoods.indexOf(food)
         myFoods.splice(index, 1)
-        return res.status(200).send({
+            res.status(200).send({
             status: 'success',
             message: 'successfully deleted', food
         });
