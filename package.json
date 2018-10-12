@@ -5,8 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "nodemon": "^1.18.4",
+    "pg": "^7.4.3",
     "validator": "^10.7.1"
   },
   "devDependencies": {
@@ -23,13 +25,14 @@
     "start": "babel-node -- server/app.js",
     "start:dev": "nodemon --watch server --exec babel-node -- server/app.js",
     "test": "nyc --reporter=html --reporter=text mocha  --compilers js:babel-core/register server/spec --timeout=3000 --exit",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "migration": "babel-node server/models/database.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jobboz/fast-food-app.git"
   },
-  "author": "",
+  "author": "Emmanuel Ekere",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jobboz/fast-food-app/issues"
