@@ -20,7 +20,7 @@ export default class MyController {
         // const index = myFoods.indexOf(food)
             res.status(200).send({
             status: 'success',
-            message: 'successfully retrived', food
+            message: 'successfully retrived',food
         });
 
     }
