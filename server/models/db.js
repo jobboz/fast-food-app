@@ -8,6 +8,7 @@ import { Pool } from 'pg';
 
 // const connectionStrin?g = config.url;
 const connectionString = 'postgresql://postgres:jobboz@localhost:5432/foods'
+//user password host port database
 
 const db = new Pool({connectionString});
 db.connect().then(() => {

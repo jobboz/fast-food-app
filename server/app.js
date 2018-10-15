@@ -18,11 +18,11 @@ app.get('/',  (req, res) => {
     }) 
 })
 
-app.use('/api/v1', rout)
- //app.use('/api/v1', myRoute)
- // app.use('/api/v1', route)
+    app.use('/api/v1', rout)
+//  app.use('/api/v1', myRoute)
+// app.use('/api/v1', route)
 // app.use('/api/v1', router)
-// app.use('/api/v1', myRouter)
+//  app.use('/api/v1', myRouter)
 
  //added route to catch all errors
 app.use('*',  (req, res) => {
