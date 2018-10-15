@@ -4,6 +4,7 @@ import { expect } from "chai";
 
 
 
+
 describe('Test for all routes for fast food apps', () => {
    
   it('return all orders', (done) => {
@@ -12,12 +13,13 @@ describe('Test for all routes for fast food apps', () => {
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
-        expect(res.body.status).to.equal('success');
-        expect(res.body.message).to.equal('successfully retrived all orders');//.equal.to
+        expect(res.body.status).to.equal('Success');
+        expect(res.body).to.have.property('message');
         done();
       });
   });
-  it('GET specific orders', (done) => {
+ 
+  it('GET specific user', (done) => {
     request(app)
       .get('/api/v1/foods/1')
       .set('Accept', 'application/json')
@@ -25,49 +27,45 @@ describe('Test for all routes for fast food apps', () => {
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.body.status).to.equal('success')
-        expect(res.body.message).to.equal('successfully retrived')
+        expect(res.body.message).to.equal('successfully retrived user')
         done();
       });
   });
-  it('should return error message for create orders if no values is inputed', (done) => {
+  it('should return `404`for an invalid id', (done) => {
     request(app)
-      .post('/api/v1/foods')
+      .get('/api/v1/foods/50')
       .send({ })
-      .expect(400)
+      .expect(404)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect('failed').to.equal(res.body.status);
-         expect('all or some field are undefined').to.equal(res.body.message);
+         expect('The User with the given id was not found').to.equal(res.body.message);
         done();
       });
   });
-  
   it('should successfully create an order', (done) => {
     request(app)
       .post('/api/v1/foods')
       .send({
-        name:'gsgsggsgsgs',
-        amount: 7000,
-        quantity: 1,
-        deliveryAddress: '60 heavens gate long way road'
+        username:'gsgsggsgsgs',
+        email: 7000,
+        password: 77665,
       })
-      .expect(201)
+      .expect(200)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect('created').to.equal(res.body.status);
-         expect('successfully created').to.equal(res.body.message);
+        expect('success').to.equal(res.body.status);
+         expect('successfully added new user').to.equal(res.body.message);
         done();
       });
   });
- 
   it('should successfully update an order', (done) => {
     request(app)
       .put('/api/v1/foods/2')
       .send({
-        name:'hamg dgdgd',
-        amount: 6600,
-        quantity: 3,
-        deliveryAddress: 'bhdhdhh ns gate long way road'
+        username:'hamg dgdgd',
+        email: 6600,
+        password: 3
       })
       .expect(200)
       .end((err, res) => {
@@ -77,48 +75,58 @@ describe('Test for all routes for fast food apps', () => {
         done();
       });
   });
- 
   it('should return status code of 404 for an invalid data', (done) => {
     request(app)
-      .put('/api/v1/foods/14')  
+      .put('/api/v1/foods/40')  
       .send({
-        name: 'jeans',
-        amount: 7000,
-        quantity: 1,
-        deliveryAddress: '60 heavens gate long way road'
+        username: 'paul',
+        email: 7000,
+        password: 8975
       })
         .expect(404)
         .end((err, res) => {
-          expect('bad request').to.equal(res.body.status);
-          expect('food with id 14 does not exit').to.equal(res.body.message);
+          expect('failed').to.equal(res.body.status);
+          expect('user id does not exist').to.equal(res.body.message);
           expect(res.status).to.equal(404);
           done();
       });
   });
-  
+   
   it('delete specific orders', (done) => {
     request(app)
-      .del('/api/v1/foods/3')
+      .del('/api/v1/foods/77')
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
         expect('success').to.equal(res.body.status);
-        expect('successfully deleted').to.equal(res.body.message);
+        expect('successfully deleted user').to.equal(res.body.message);
         if (err) done(err);
         done();
       });
   });
-  it('should return status code of 400 when food id dose not exist', (done) => {
+  it('should return `400` status code when any field are undefined', (done) => {
     request(app)
-      .del('/api/v1/foods/10')
-      .set('Content-Type', 'application/json')
+      .post('/api/v1/foods')
+      .send({})
       .expect(400)
       .end((err, res) => {
-        expect('not found').to.equal(res.body.status);
-        expect('the food with the given id 10 was not found').to.equal(res.body.message);
-        expect(res.status).to.equal(400);
+        expect(res.body).to.be.an('object');
+         expect('All or some field is/are undefined').to.equal(res.body.message);
         done();
       });
   });
+  
+  it('should return `404` status code when any field is undefined', (done) => {
+    request(app)
+      .put('/api/v1/foods/96')
+      .send({})
+      .expect(400)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+         expect('All or some field is/are undefined').to.equal(res.body.message);
+        done();
+      });
+  });
+
   
 });
