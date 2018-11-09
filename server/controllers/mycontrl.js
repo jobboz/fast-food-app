@@ -58,7 +58,6 @@ res.status(200)
     message: `Successsfully retrieved all users orders with total of ${user.rows.length} user`,
     user: user.rows,
     userValue:user.rows.length,
-    user: user,
   });
 
 }).catch((err) => {
@@ -84,9 +83,9 @@ res.status(200)
           return res.status(404)
           .json({
             status:'failed',
-            message: 'The User with the given id was not found'
+            message: 'The User with the given id was not found' 
           });
-        }
+        } 
         return res.status(200)
         .json({
           status:'success',
@@ -111,7 +110,7 @@ res.status(200)
      * @memberof Controls
      */
    static modifyOrders(req, res) {
-     const { username, email, password} = req.body,
+     const { username, email, password} = req.body, 
      { id } = req.params;
      const sql = 'UPDATE users SET username = $1, email=$2, password = $3 WHERE id =$4';
       const params = [username,email,password, id];
