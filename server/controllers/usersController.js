@@ -14,14 +14,14 @@ dotenv.config();
  * @export
  * @class UsersController
  */
-export default class UsersController {
+class UsersController {
     /**
      * @param {obj} req
      * @param {obj} res
      * @memberof UsersController
      *  @returns {obj} insertion error messages or success message
      */
-    static signUp(req, res) {
+     signUp(req, res) {
        const {username, email} = req.body;
        const hashedPassword =  bcrypt.hashSync(req.body.password, 10);
        db.query(`SELECT id FROM users WHERE email='${email}'`)
@@ -37,9 +37,10 @@ export default class UsersController {
            db.query(sql, params)
            .then((users)=>{
                const payload = {
-                   username
+                   username:username,
                }
                const token = jwt.sign(payload, process.env.SECRET_KEY,{
+                   //this basically sign the given caterials(payload, secrete-key) into a jwt string
                    expiresIn: 60 * 60 * 10 //10 hours
                });
                 req.token = token;
@@ -63,7 +64,7 @@ export default class UsersController {
            }));
        })
     }
-    static signIn(req, res){
+      signIn(req, res){
         const{username, password} = req.body;
         
         const sql = `SELECT * FROM users WHERE username = '${username}'`;
@@ -72,9 +73,13 @@ export default class UsersController {
             const verifyPassword = bcrypt.compareSync(password, result.rows[0].password);
              if(verifyPassword) {
                  const payload = {
-                     username:result.rows[0].username
+                     username:result.rows[0].username,
+                     role:result.rows[0].role,
+
                  };
-                 const token = jwt.sign(payload, process.env.SECRET_KEY,{
+                 //authentication server
+                 const token = jwt.sign(payload, process.env.SECRET_KEY,{ //asymmentric algorithm
+                    //we also have symmetric algorithm
                       expiresIn: 60 * 60 * 10 // 10 hours
                  });
                  req.token = token;
@@ -91,15 +96,17 @@ export default class UsersController {
             }
             res.status(400).json({
                 status:'failed',
-                message:'invalid username or password'
+                message:'invalid username or password',
+                
             });
         }).catch((err) =>{
             res.status(500).json({
                 status:'failed',
                 message:err.message
             })
-        })
+        }) 
          
     }
     
 }
+export default new UsersController();

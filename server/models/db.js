@@ -2,7 +2,7 @@ import { Pool } from 'pg';
   require('dotenv').config();
 
 
-const{ connectionString} = process.env;
+const{ connectionString } = process.env;
 const db = new Pool({connectionString});
 db.connect().then(() => {
   
@@ -14,3 +14,4 @@ db.connect().then(() => {
 })
 
 export default db;
+

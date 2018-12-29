@@ -20,7 +20,7 @@ for(var food = 0 ; food < myFoods.length; food++){
         status: 'success',
         message: 'successfully retrived',
        singleOrder:myFoods[food]
-})
+}) 
 res.status(404).send({
     status: 'not found',
     message: 'the food with the given id was not found'

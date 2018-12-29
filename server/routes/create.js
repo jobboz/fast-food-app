@@ -1,7 +1,7 @@
 import express from "express";
 import createController from './../controllers/createControl';
 import foodValidate from './../middleware/validate';
-const router = express.Router();
+const router = epress.Router();
 
 
 router.route('/foods')
