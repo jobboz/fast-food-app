@@ -41,5 +41,6 @@
   "bugs": {
     "url": "https://github.com/jobboz/fast-food-app/issues"
   },
-  "homepage": "https://github.com/jobboz/fast-food-app#readme"
+  "homepage": "https://github.com/jobboz/fast-food-app#readme",
+  "keywords": []
 }

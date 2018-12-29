@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/plain.css" />
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <h3 class="site-name"><a href="landing-pg.html">Fast food app</a></h3>
+        <ul>
+            <!-- <li>
+                <a class="home" href="landing-pg.html">home</a>
+            </li> -->
+            
+            <!-- <li>
+                <a href="Admin-list-of-foods.html">food items</a>
+            </li> -->
+            <li>
+                <a href="table.html">view orders</a>
+            </li>
+            <li>
+                <a href="add-food.html">Add Food</a>
+            </li>
+            <li>
+                <a href="login.html">logout</a>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <header>
+            <h1>Modify items</h1>
+        </header>
+        <form class="user-form">
+            <div class="user-detail-div">
+                <label for="item name">item name</label>
+                <input type="text" id="item-name" placeholder="item-name"value="Spicy Chicken">
+            </div>
+            <div>
+                <label for="price">price</label>
+                <input type="text" id="price" placeholder="price" value="7">
+            </div>
+            <div>
+                <label for="quantity">quantity</label>
+                <input type="number" id="quantity" placeholder="quantity"value="10">
+            </div>
+            <div>
+                <label for="number">description</label>
+                <textarea name="description" id="description"value="my ice creams should be missed with all flavours"></textarea>
+            </div>
+            <div>
+                <label for="image">image</label>
+                <input type="file" id="image" placeholder="quantity">
+            </div>
+            <div class="button">
+            <button id="edit-btn" type="edit"><a href="Admin-list-of-foods.html">SAVE</a></button>
+            <!-- <button id="delete-btn" type="delete">delete</button> -->
+            </div>
+        </form>
+    </section>
+    <footer>&COPY; andela 2018</footer>
+</body>
+
+</html>

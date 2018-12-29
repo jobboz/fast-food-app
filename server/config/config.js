@@ -6,7 +6,7 @@ export const development = {
 export const test = {
     url: process.env.TEST_URL
 };
-export const production = {
+export const production = { 
     url: process.env.DATABASE_URL
 };
   
