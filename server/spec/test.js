@@ -2,9 +2,12 @@ import app from '../app'
 import request from "supertest";
 import { expect } from "chai";
 import { access } from 'fs';
+import { userInfo } from 'os';
 
-const authToken =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJlbm4iLCJpYXQiOjE1NDE3MTA3NTAsImV4cCI6MTU0MTc0Njc1MH0.MSGbZ2_IrnFItTFesmexn15c7hrwNCUdS2fSXcZMahs';
-const wrongToken = 'dshjjjjjjjjjnnbbbvvvvvvk';
+const authToken =  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFhYXd3cSIsImlhdCI6MTU0NDA0MTA2MywiZXhwIjoxNTQ0MDc3MDYzfQ.AzSRTGaGdIder7E8_CBgix_GvxzEfBYlPqP-cltVOXk';
+const verifyAdmin =
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTQ0MDQwOTU5LCJleHAiOjE1NDQwNzY5NTl9.M2UQaUUAEtd3VRcI8kVeu2NkXEhDBoPX0ISoyPXuXVo'
+
  
 
 describe('Test for all routes for fast food apps', () => {
@@ -21,10 +24,131 @@ describe('Test for all routes for fast food apps', () => {
        }) 
      });
   });
-   
+  it('should fail to load application home page', (done) => {
+    request(app)
+      .get('/home')  
+      .set('Accept', 'application/json')
+      .expect(404)
+      .end((err, res) => {
+        expect(res.body.message).to.equal('page not found');
+        expect(res.body.status).to.equal('failed');
+        if (err) done(err);
+        done();
+       }) 
+     });
+     it('should fail get route', (done) => {
+      request(app)
+        .get('/api/v1')  
+        .set('Accept', 'application/json')
+        .expect(404)
+        .end((err, res) => {
+          expect(res.body.message).to.equal('page not found');
+          expect(res.body.status).to.equal('failed');
+          if (err) done(err);
+          done();
+         }) 
+       });
+       describe('All test cases for users', () => {
+        describe('All test cases for user signUp', () => {
+        it('should create a new user account and return a `201`', (done) => {
+        
+           request(app)
+            .post('/api/v1/signup') 
+            .send({
+              username: 'aaawwq',
+              email: 'fetushrrre@hhhgmail.comcdcc',
+              password: '11111111'
+            })
+            .expect(201)
+            .end((err, res) => {
+              expect(res.body.status).to.equal('success');
+              expect(res.body.message).to.equal('successfully created users account');
+              expect(res.body.data.username).to.equal('aaawwq');
+              expect(res.body.data.email).to.equal('fetushrrre@hhhgmail.comcdcc');
+              if(err) done(err);
+              done();
+             });
+           });
+        });
+      });
+
+      it('should check if user already exist in the database and return `409`', (done) => {
+        const userInfo = {
+              username: 'aaawwq',
+              email: 'fetushrrre@hhhgmail.comcdcc',
+              password: '11111111'
+        }
+        request(app)
+          .post('/api/v1/signup')  
+          .send(userInfo)
+          .expect(200)
+          .end((err, res) => {
+            expect(res.body.status).to.equal('Failed');
+            expect(res.body.message).to.equal('user already exist');
+            done();
+          });
+      });
+      it('should not create a new user account and return `400`', (done) => {
+        request(app)
+          .post('/api/v1/signup')  
+          .send({ 
+            username: '',
+            email: '',
+            password: ''
+      })
+          .expect(400)
+          .end((err, res) => {
+             expect(res.body.errors.username).to.equal('username is required');
+             expect(res.body.errors.email).to.equal('email is required');
+             expect(res.body.errors.password).to.equal('password is required');
+            done();
+          });
+      });       
+      it('should not create a new user account and return `400`', (done) => {
+        request(app)
+          .post('/api/v1/signup')  
+          .send({ 
+            username: 'j',
+            email: 'bbb.com',
+            password: 'uuuu'
+      })
+          .expect(400)
+          .end((err, res) => {
+             expect(res.body.errors.username).to.equal('username must be between  2 to 100 characters');
+             expect(res.body.errors.email).to.equal('Enter a valid email address');
+             expect(res.body.errors.password).to.equal('password must be eight character or more');
+            done();
+          });
+      });
+      it('should not log in a new user account and return a status of `400`', (done) => {
+        request(app)
+          .post('/api/v1/signup')  
+          .send({ })
+          .expect(400)
+          .end((err, res) => {
+             expect(res.body).deep.equal({
+              message: 'All or some field is/are undefined'
+              });
+            done();
+          });
+      });       
+      it('should not log in a new user account and return a status of `400`', (done) => {
+        request(app)
+          .post('/api/v1/signin')  
+          .send({
+            username:'b',
+            password:'gggg'
+           })
+          .expect(400)
+          .end((err, res) => {
+             expect(res.body.errors.username).to.equal('username must be between 2 to 100 characters');
+              expect(res.body.errors.password).to.equal('password must be eight character or more')
+            done();
+          });
+      });       
   it('return all orders', (done) => {
     request(app)
-      .get(`/api/v1/foods?token=${authToken}`)  
+      .get(`/api/v1/users?token=${authToken}`)  
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
@@ -36,7 +160,7 @@ describe('Test for all routes for fast food apps', () => {
  
   it('GET specific user', (done) => {
     request(app)
-      .get(`/api/v1/foods/2?token=${authToken}`)
+      .get(`/api/v1/users/2?token=${authToken}`)
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
@@ -48,7 +172,7 @@ describe('Test for all routes for fast food apps', () => {
   });
   it('should return `404`for an invalid id', (done) => {
     request(app)
-      .get(`/api/v1/foods/70?token=${authToken}`)
+      .get(`/api/v1/users/300?token=${authToken}`)
       .send({ })
       .expect(404)
       .end((err, res) => {
@@ -60,7 +184,7 @@ describe('Test for all routes for fast food apps', () => {
   });
   it('should successfully create user', (done) => {
     request(app)
-      .post(`/api/v1/foods?token=${authToken}`)
+      .post(`/api/v1/users?token=${authToken}`)
       .send({
         username:'gsgsggsgsgs',
         email: 7000,
@@ -75,9 +199,9 @@ describe('Test for all routes for fast food apps', () => {
       });
   });
   it('should successfully update an order', (done) => {
-    r\
-    equest(app)
-      .put(`/api/v1/foods/3?token=${authToken}`)
+    
+    request(app)
+      .put(`/api/v1/users/3?token=${authToken}`)
       .send({
         username:'hamg dgdgd',
         email: 6600,
@@ -93,7 +217,7 @@ describe('Test for all routes for fast food apps', () => {
   });
   it('should return status code of 404 for an invalid data', (done) => {
     request(app)
-      .put(`/api/v1/foods/200?token=${authToken}`)  
+      .put(`/api/v1/users/200?token=${authToken}`)  
       .send({
         username: 'paul',
         email: 7000,
@@ -108,9 +232,9 @@ describe('Test for all routes for fast food apps', () => {
       });
   });
    
-  it('delete specific orders', (done) => {
+  it('delete specific users', (done) => {
     request(app)
-      .del(`/api/v1/foods/6?token=${authToken}`)
+      .del(`/api/v1/users/59?token=${authToken}`)
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
@@ -122,7 +246,7 @@ describe('Test for all routes for fast food apps', () => {
   });
   it('should return `400` status code when any field are undefined', (done) => {
     request(app)
-      .post(`/api/v1/foods?token=${authToken}`)
+      .post(`/api/v1/users?token=${authToken}`)
       .send({})
       .expect(400)
       .end((err, res) => {
@@ -134,7 +258,7 @@ describe('Test for all routes for fast food apps', () => {
   
   it('should return `404` status code when any field is undefined', (done) => {
     request(app)
-      .put(`/api/v1/foods/5?token=${authToken}`)
+      .put(`/api/v1/users/5?token=${authToken}`)
       .send({})
       .expect(400)
       .end((err, res) => {
@@ -183,12 +307,12 @@ describe('Test for all routes for fast food apps', () => {
   it('should successfully create an order', (done) => {
     request(app)
     
-      .post(`/api/v1/orders?token=${authToken}`)
+      .post(`/api/v1/orders?token=${verifyAdmin}`)
       .send({
-        name: "emmanuel",
-        amount: "888",
-        quantity: "9999",
-        deliveryAddress: "hgvfvccfcvcvbb"
+        name: 'eba',
+        amount: 5000,
+        quantity: 4,
+        deliveryAddress: '489 obafemi duro street lagos'
       })
       .expect(200)
       .end((err, res) => {
@@ -234,7 +358,7 @@ describe('Test for all routes for fast food apps', () => {
   });  
   it('should return `404` status code when any field is undefined', (done) => {
     request(app)
-      .post(`/api/v1/orders?token=${authToken}`)
+      .post(`/api/v1/orders?token=${verifyAdmin}`)
       .send({})
       .expect(400)
       .end((err, res) => {
@@ -245,7 +369,7 @@ describe('Test for all routes for fast food apps', () => {
   });
   it('delete specific orders', (done) => {
     request(app)
-      .del('/api/v1/orders/3')
+      .del('/api/v1/orders/61')
       .set('Accept', 'application/json')
       .expect(200)
       .end((err, res) => {
@@ -257,7 +381,7 @@ describe('Test for all routes for fast food apps', () => {
   });
   it('returns 404 for an invalid id', (done) => {
     request(app)
-      .del(`/api/v1/orders/40?token=${authToken}`)
+      .del(`/api/v1/orders/100?token=${authToken}`)
       .set('Accept', 'application/json')
       .expect(404)
       .end((err, res) => {

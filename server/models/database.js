@@ -1,8 +1,13 @@
 import { Client } from 'pg';
+import bcrypt from 'bcryptjs'
 require('dotenv').config()
 
-const client = new Client();
+const{ connectionString} = process.env;
+
+const client = new Client(connectionString);
 client.connect();
+
+const hashedAdminPaasword = bcrypt.hashSync('12345678', 10)
 
 
 const table = () => {
@@ -40,7 +45,33 @@ CREATE TABLE  IF NOT EXISTS orders (
     deliveryAddress varchar(150),
     
     date date not null default now()
-    )`;
+    );
+    
+    INSERT INTO users (
+            
+         username,
+
+         email,
+
+         password,
+
+         role
+
+    )
+
+
+    VALUES (
+      
+        'Admin',
+
+        'admin@gmail.com',
+
+        '${hashedAdminPaasword}',
+
+        'admin' 
+
+    );`
+    
  client.query(myquery,(err)=>{
         if(err){
         console.log(err);
