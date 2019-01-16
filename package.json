@@ -14,9 +14,7 @@
     "nodemailer": "^4.6.8",
     "nodemon": "^1.18.4",
     "pg": "^7.4.3",
-    "validator": "^10.7.1"
-  },
-  "devDependencies": {
+    "validator": "^10.7.1",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
@@ -25,6 +23,9 @@
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "supertest": "^3.2.0"
+  },
+  "devDependencies": {
+   
   },
   "scripts": {
     "start": "babel-node -- server/app.js",
