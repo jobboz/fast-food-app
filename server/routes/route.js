@@ -29,7 +29,7 @@ router.route('/orders')
 
 router.route('/orders/:id')
 .get(authToken, orderController.getSpecificOrder)
-.put(authToken, orderValidator. modifyOrderValidator, orderController.ModifyOrder)
+.put(authToken, orderValidator.modifyOrderValidator, orderController.ModifyOrder)
 .delete(authToken, orderController.deleteOrder)
 // //user signup and signin
  router.route('/signup')

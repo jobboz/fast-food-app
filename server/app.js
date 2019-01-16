@@ -2,7 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import rout from './routes/route';
 const app = express();
-//const port = parseInt((process.env.PORT), 10) || 5000;
+var cors = require('cors')
+ 
+app.use(cors())
 const port = process.env.PORT || 5000;
 
 
