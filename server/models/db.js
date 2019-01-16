@@ -14,4 +14,3 @@ db.connect().then(() => {
 })
 
 export default db;
-

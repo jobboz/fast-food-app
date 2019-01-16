@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/plain.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/css/plain.css" />
 </head>
 
 <body>
@@ -14,17 +14,17 @@
         <header>
             <h1>Sign up</h1>
         </header>
-        <form class="user-form">
+        <form class="user-form" id="signup">
             <div class="user-detail-div">
                 <input type="text" id="username" placeholder="Username">
             </div>
             <div class="user-detail-div">
-                <input type="email" id="username" placeholder="Email">
+                <input type="email" id="email" placeholder="Email">
             </div>
             <div>
                 <input type="password" id="password" placeholder="Password">
             </div>
-            <button id="submit-btn" type="submit"><a href="login.html">Register</a></button>
+            <button id="submit-btn" type="submit">Register</button>
         </form>
 
         <p>Already have an account? ... <a href="login.html"> login</a> 
@@ -32,6 +32,7 @@
     </section>
 
     <footer>&COPY; andela 2018</footer>
+    <script src="public/js/signup.js"></script>
 </body>
 
 </html>

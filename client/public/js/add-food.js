@@ -1,6 +1,6 @@
 const token = localStorage.getItem('tokens');
 if(token === null) {
-    window.localStorage.href = './login.html';
+    window.location.href = './login.html';
 
 }
 
@@ -11,7 +11,7 @@ if(token === null) {
     document.getElementById('nav-img').src = userImg;
      //navbar userdetail ends
 
-       const addFoodItem = (e) => {
+       const addFoodItem = (e) => 
            e.preventDefault();
            const message = document.getElementById ('success-message');
            const close = document.getElementById('close');
@@ -27,10 +27,10 @@ if(token === null) {
                    'Content-Type': 'application/json',
                    'x-access-token': token,
                },
-               body: JSON.stingify(post)
-           };
-       }
-       fetch('https://fast-food-app.herokuapp.com/api/v1/users', option)
+               body: JSON.stringify(post)
+           }
+       
+       fetch('https://fast-food-app.herokuapp.com/api/v1/orders', option)
        .then(res => res.json())
        .then((data) => {
 document.getElementById('loading').style.display = '';
