@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/plain.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/css/plain.css" />
 </head>
 
 <body>
@@ -14,20 +14,22 @@
         <header>
             <h1>log in</h1>
         </header>
-        <form class="user-form">
+        <form class="user-form" id="signin">
             <div class="user-detail-div">
                 <input type="text" id="username" placeholder="input user name">
             </div>
             <div>
                 <input type="password" id="password" placeholder="input your password">
             </div>
-            <button id="submit-btn" type="submit"><a href="Admin-list-of-foods.html">Login</a></button>
+            <button id="submit-btn" type="submit">Login</button>
         </form>
 
         <p>you dont have an account? ... <a href="signup.html"> sign up here</a> 
         </p>
     </section>
     <footer>&COPY; andela 2018</footer>
+    <script src="public/js/signin.js"></script>
+        
 </body>
 
 </html>
